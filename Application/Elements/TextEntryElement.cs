@@ -143,10 +143,12 @@ namespace GumpStudio.Elements
 		{
 			if (MaxLength > 0)
 			{
-				return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, (int)Inputs.{Name.Replace(" ", String.Empty)}, {InitialText.Replace("\"", "\\\"")}, {MaxLength});";
+				return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, (int)Inputs.{Name.Replace(" ", String.Empty)}, " +
+				       $"{InitialText ?? "\"\""}, {MaxLength});";
 			}
 
-			return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, (int)Inputs.{Name.Replace(" ", String.Empty)}, {InitialText.Replace("\"", "\\\"")});";
+			return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, (int)Inputs.{Name.Replace(" ", String.Empty)}, " +
+			       $"{InitialText ?? "\"\"" });";
 		}
 	}
 }
